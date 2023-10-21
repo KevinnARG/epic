@@ -1,12 +1,15 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 
-const server = http.createServer((req, res) => {
-  const ipAddress = req.connection.remoteAddress;
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end(`Su dirección IP es: ${ipAddress}\n`);
+// Habilitar el encabezado X-Forwarded-For
+app.set('trust proxy', true);
+
+app.get('/', (req, res) => {
+  const clientIP = req.ip; // Esto debería proporcionar la dirección IP del visitante
+  res.send(`Tu dirección IP es: ${clientIP}\n`);
 });
 
-const port = 3000; // Puedes cambiar el puerto según tus necesidades
-server.listen(port, () => {
+const port = 3000;
+app.listen(port, () => {
   console.log(`Servidor escuchando en el puerto ${port}`);
 });
